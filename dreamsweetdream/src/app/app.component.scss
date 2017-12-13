@@ -1,0 +1,320 @@
+.grid {
+    display: grid;
+}
+.self-center {
+    align-self: center;
+    justify-self: center;
+    color: #9746B8;
+}
+i.large {
+    font-size: 35px;
+}
+
+
+
+.wrapper > div.slider {
+    grid-area: slider;
+}
+
+.wrapper > div.image-top {
+    grid-area: image-top;
+    background-color: rgba(0, 0, 0, 0.863);
+    mix-blend-mode: multiply;
+}
+
+.wrapper > div.image-bottom {
+    grid-area: image-bottom;
+    background-color: rgba(0, 0, 0, 0.863);
+    mix-blend-mode: multiply;
+}
+
+.wrapper > div.logo {
+    grid-area: logo;
+}
+
+.wrapper > div.menu {
+    grid-area: menu;
+}
+
+.wrapper > div.face {
+    grid-area: face;
+}
+
+.wrapper > div.insta {
+    grid-area: insta;   
+}
+
+.wrapper > div.slider-2 {
+    grid-area: slider-2;
+}
+
+.wrapper > div.image-top-2 {
+    grid-area: image-top-2;
+}
+
+.wrapper > div.image-bottom-2 {
+    grid-area: image-bottom-2;
+}
+
+.wrapper > div.logo-2 {
+    grid-area: logo-2;
+}
+
+.wrapper > div.menu-2 {
+    grid-area: menu-2;
+}
+
+.wrapper > div.face-2 {
+    grid-area: face-2;
+}
+
+.wrapper > div.insta-2 {
+    grid-area: insta-2;
+}
+
+/***********************************************
+                    MENU
+***********************************************/
+.wrapper-menu {
+    align-self: center;
+    justify-self: center;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: transform 330ms ease-out;
+  }
+  
+  .wrapper-menu.open {
+    transform: rotate(-45deg);  
+  }
+
+  .line-menu {
+    background-color: #9746B8;
+    box-shadow: 2px 2px #AF79BF;
+    border-radius: 5px;
+    width: 100%;
+    height: 6px;
+  }
+  
+  .line-menu.half {
+    width: 50%;
+  }
+  
+  .line-menu.start {
+    transition: transform 330ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
+    transform-origin: right;
+  }
+  
+  .open .line-menu.start {
+    transform: rotate(-90deg) translateX(3px);
+  }
+  
+  .line-menu.end {
+    align-self: flex-end;
+    transition: transform 330ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
+    transform-origin: left;
+  }
+  
+  .open .line-menu.end {
+    transform: rotate(-90deg) translateX(-3px);
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 2;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    transform: translate3d(0, 0, 0);
+    /* material acceleration */
+    transform: translateX(-100%);
+    will-change: transform;
+    transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+  nav::before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    width: 25em;
+    background: #9746B8;
+    content: '';
+    transform: skewX(15deg) translateX(-100%);
+    transform-origin: bottom left;
+    will-change: transform;
+    transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+  @media (min-width: 40em) {
+    nav::before {
+      width: 40em;
+    }
+  }
+  nav a {
+    margin: .5em 0;
+    padding: .2em 2em;
+    font-size: 1.5em;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transform: translateX(-100%);
+    transition: color .15s, transform .5s;
+    transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  }
+  nav a:nth-child(1) {
+    transition-delay: 0s, 100ms;
+  }
+  nav a:nth-child(2) {
+    transition-delay: 0s, 150ms;
+  }
+  nav a:nth-child(3) {
+    transition-delay: 0s, 200ms;
+  }
+  nav a:nth-child(4) {
+    transition-delay: 0s, 250ms;
+  }
+  nav a:nth-child(5) {
+    transition-delay: 0s, 300ms;
+  }
+  nav a:nth-child(6) {
+    transition-delay: 0s, 350ms;
+  }
+  nav a:hover, nav a:focus {
+    color: black;
+  }
+
+  [id="navcheck"].checked ~ nav {
+    transform: translateX(0);
+  }
+  [id="navcheck"].checked ~ nav::before {
+    transform: skewX(15deg) translateX(0);
+  }
+  [id="navcheck"].checked ~ nav a {
+    transform: translateX(0);
+  }
+  [id="navcheck"].checked ~ .wrapper {
+    transform: translateX(3em);
+    transform-origin: left center;
+    -webkit-filter: blur(2px);
+    filter: blur(2px);
+    /* quite laggy :S */
+  }
+
+/***********************************************
+                    END MENU
+***********************************************/
+
+
+/***********************************************
+                    FIRST IMAGE
+***********************************************/
+  .image {
+    opacity: 1;
+    background-size: cover !important;
+    height: auto;
+    width: 100%;
+    -webkit-transform: scale(1);
+	transform: scale(1);
+    transition: .5s ease;
+  }
+  
+  .text {
+      opacity: 0;
+      color: white;
+      font-size: 16px;
+      z-index: 2;
+      position: absolute;
+      transition: .5s ease;
+  }
+
+  .first-image:hover .image {
+    opacity: 0.3;
+    -webkit-transform: scale(1.3);
+	transform: scale(1.3);
+  }
+  
+  .first-image:hover .text {
+    opacity: 1;
+  }
+  
+  
+
+/***********************************************
+                END FIRST IMAGE
+***********************************************/
+
+
+/***********************************************
+                CAROUSEL IMAGE
+***********************************************/
+
+.carousel, 
+.carousel > .carousel-inner, 
+.carousel > .carousel-inner > .carousel-item { 
+    height:100%; 
+}
+
+/***********************************************
+                END CAROUSEL IMAGE
+***********************************************/
+
+
+/***********************************************
+ Extra small devices (portrait phones, less than 576px)
+***********************************************/
+@media (max-width: 575px) {
+    body {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+        "wrapper";
+        justify-items: center;
+    }
+    .wrapper {
+        grid-template-columns: repeat(5, 80px);
+        grid-template-rows: minmax(80px, auto);
+        grid-auto-rows: minmax(80px, auto);
+        grid-gap: 10px;
+        grid-area: wrapper;
+        grid-template-areas:
+        "e e . c d"
+        "f f f f f"
+        "a a a a a"
+        "b b b b b"
+        "g g g g g";
+    }
+    .wrapper-menu {
+        align-self: center;
+        justify-self: start;
+    }
+    .image {
+        height: 300px;
+      }
+ }
+
+/***********************************************
+ Small devices (landscape phones, less than 768px)
+***********************************************/
+@media (max-width: 767px) { 
+
+ }
+
+/***********************************************
+ Medium devices (tablets, less than 992px)
+***********************************************/
+@media (max-width: 991px) { 
+    
+ }
+
+/***********************************************
+ Large devices (desktops, less than 1200px)
+***********************************************/
+@media (max-width: 1199px) { 
+    
+ }

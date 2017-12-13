@@ -1,1 +1,83 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import url('//fonts.googleapis.com/icon?family=Material+Icons');
+@import url('//fonts.googleapis.com/css?family=Roboto:300,400,500');
+
+@import 'assets/scss/reset';
+
+body {
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    grid-template-columns: auto auto auto;
+    grid-template-areas:
+    ". wrapper .";
+    justify-items: center;
+}
+
+.wrapper {
+    grid-template-columns: repeat(21, 80px);
+    grid-template-rows: repeat(26, 80px);
+    grid-auto-rows: minmax(80px, auto);
+    grid-gap: 5px;
+    grid-area: wrapper;
+    justify-content: center;
+    grid-template-areas: 
+
+    /*************** SECTION 1 ***************/
+    "slider slider slider slider slider slider slider slider slider slider slider slider slider image-top image-top image-top image-top image-top image-top image-top image-top"
+    "slider slider slider slider slider slider slider slider slider slider slider slider slider image-top image-top image-top image-top image-top image-top image-top image-top"
+    "slider slider slider slider slider slider slider slider slider slider slider slider slider image-top image-top image-top image-top image-top image-top image-top image-top"
+    "slider slider slider slider slider slider slider slider slider slider slider slider slider image-top image-top image-top image-top image-top image-top image-top image-top"
+    "slider slider slider slider slider slider slider slider slider slider slider slider slider image-top image-top image-top image-top image-top image-top image-top image-top"
+    "slider slider slider slider slider slider slider slider slider slider slider slider slider image-top image-top image-top image-top image-top image-top image-top image-top"
+    "slider slider slider slider slider slider slider slider slider slider slider slider slider image-top image-top image-top image-top image-top image-top image-top image-top"
+    "slider slider slider slider slider slider slider slider slider slider slider slider slider image-top image-top image-top image-top image-top image-top image-top image-top"
+    "slider slider slider slider slider slider slider slider slider slider slider slider slider menu menu insta image-bottom image-bottom image-bottom image-bottom image-bottom"
+    "slider slider slider slider slider slider slider slider slider slider slider slider slider menu menu face image-bottom image-bottom image-bottom image-bottom image-bottom"
+    "slider slider slider slider slider slider slider slider slider slider slider slider slider logo logo logo image-bottom image-bottom image-bottom image-bottom image-bottom"
+    "slider slider slider slider slider slider slider slider slider slider slider slider slider logo logo logo image-bottom image-bottom image-bottom image-bottom image-bottom"
+    "slider slider slider slider slider slider slider slider slider slider slider slider slider logo logo logo image-bottom image-bottom image-bottom image-bottom image-bottom"
+
+    /*************** SECTION 2 ***************/
+    "image-bottom-2 image-bottom-2 image-bottom-2 image-bottom-2 image-bottom-2 logo-2 logo-2 logo-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2"
+    "image-bottom-2 image-bottom-2 image-bottom-2 image-bottom-2 image-bottom-2 logo-2 logo-2 logo-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2"
+    "image-bottom-2 image-bottom-2 image-bottom-2 image-bottom-2 image-bottom-2 logo-2 logo-2 logo-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2"
+    "image-bottom-2 image-bottom-2 image-bottom-2 image-bottom-2 image-bottom-2 face-2 menu-2 menu-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2"
+    "image-bottom-2 image-bottom-2 image-bottom-2 image-bottom-2 image-bottom-2 insta-2 menu-2 menu-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2"
+    "image-top-2 image-top-2 image-top-2 image-top-2 image-top-2 image-top-2 image-top-2 image-top-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2"
+    "image-top-2 image-top-2 image-top-2 image-top-2 image-top-2 image-top-2 image-top-2 image-top-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2"
+    "image-top-2 image-top-2 image-top-2 image-top-2 image-top-2 image-top-2 image-top-2 image-top-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2"
+    "image-top-2 image-top-2 image-top-2 image-top-2 image-top-2 image-top-2 image-top-2 image-top-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2"
+    "image-top-2 image-top-2 image-top-2 image-top-2 image-top-2 image-top-2 image-top-2 image-top-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2"
+    "image-top-2 image-top-2 image-top-2 image-top-2 image-top-2 image-top-2 image-top-2 image-top-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2"
+    "image-top-2 image-top-2 image-top-2 image-top-2 image-top-2 image-top-2 image-top-2 image-top-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2"
+    "image-top-2 image-top-2 image-top-2 image-top-2 image-top-2 image-top-2 image-top-2 image-top-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2 slider-2"  
+    ;
+
+        /*************** SECTION 2 ****************
+        "e e e e e d d d g g g g g g g g g g g g g g g"
+        "e e e e e d d d g g g g g g g g g g g g g g g"
+        "e e e e e d d d g g g g g g g g g g g g g g g"
+        "e e e e e c c a g g g g g g g g g g g g g g g"
+        "e e e e e c c b g g g g g g g g g g g g g g g"
+        "f f f f f f f f g g g g g g g g g g g g g g g"
+        "f f f f f f f f g g g g g g g g g g g g g g g"
+        "f f f f f f f f g g g g g g g g g g g g g g g"
+        "f f f f f f f f g g g g g g g g g g g g g g g"
+        "f f f f f f f f g g g g g g g g g g g g g g g"
+        "f f f f f f f f g g g g g g g g g g g g g g g"
+        "f f f f f f f f g g g g g g g g g g g g g g g"
+        "f f f f f f f f g g g g g g g g g g g g g g g"
+        */
+
+    transform: translate3d(0, 0, 0);
+    /* material acceleration */
+    will-change: transform, filter;
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+
+}
+
+.wrapper > div {
+    overflow: hidden;
+    border: 1px solid #9746B8;
+}
