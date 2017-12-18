@@ -1,118 +1,64 @@
 
-<div class="wrapper grid">
-  
-  <div class="menu grid"></div>
-  <div class="insta grid"></div>
-  <div class="face grid"></div>
-  <div class="logo grid"></div>
-  <div class="image-bottom grid"></div>
-  <div class="image-top grid"></div>
-  <div class="slider grid"></div>
-
-  <div class="menu-2 grid"></div>
-  <div class="insta-2 grid"></div>
-  <div class="face-2 grid"></div>
-  <div class="logo-2 grid"></div>
-  <div class="image-bottom-2 grid"></div>
-  <div class="image-top-2 grid"></div>
-  <div class="slider-2 grid"></div>
-
-</div>
-
-
-<!-- 
-  <div id="navcheck"></div>
+<!-- <div id="navcheck"></div>
 
 <nav id="menu">
-  <a href="#">Lorem.</a>
-  <a href="#">Nesciunt!</a>
-  <a href="#">Magnam.</a>
-  <a href="#">Ipsum.</a>
-  <a href="#">Voluptatem.</a>
-  <a href="#">Quibusdam.</a>
-</nav>
+    <a href="#">Lorem.</a>
+    <a href="#">Nesciunt!</a>
+    <a href="#">Magnam.</a>
+    <a href="#">Ipsum.</a>
+    <a href="#">Voluptatem.</a>
+    <a href="#">Quibusdam.</a>
+</nav> -->
 
-<div class="wrapper grid">
-  <div class="menu grid">
-      <div class="wrapper-menu">
-          <div class="line-menu half start"></div>
-          <div class="line-menu"></div>
-          <div class="line-menu half end"></div>
-      </div>
-  </div>
-  <div class="insta grid">
-      <a href="#" class="self-center">
-          <i class="fi-social-instagram large"></i>
-      </a>
-  </div>
-  <div class="face grid">
-      <a href="#" class="self-center">
-          <i class="fi-social-facebook large"></i>
-      </a>
-  </div>
-  <div class="logo grid">
-      <img src="dsd-logo.png" class="self-center" width="100%">
-  </div>
+<div class="wrapper">
 
-  <div class="image-bottom grid first-image">
-      <div style="background: url('bem-casado.jpg')" class="image"></div>
-      <div class="text">Bem Casado</div>
-  </div>
+    <div class="pages page-1 page-current">
+        <div class="page-item hasImage" data-delay="150" data-direction="ttb">1</div>
+        <div class="page-item hasImage" data-delay="300" data-direction="ttb">2</div>
+        <div class="page-item hasImage" data-delay="200" data-direction="ttb">
+            <ngx-carousel
+            [inputs]="carouselCupcake"
+            (carouselLoad)="myfunc($event)">
+                <ngx-item NgxCarouselItem>
+                    <div style="background: url('/assets/images/bem-casado.jpg')" class="img-responsive"></div>
+                </ngx-item>
+                <ngx-item NgxCarouselItem>
+                    <div style="background: url('/assets/images/cake-2.jpg')" class="img-responsive"></div>
+                </ngx-item>
+                <button NgxCarouselPrev class='leftRs'>&lt;</button>
+                <button NgxCarouselNext class='rightRs'>&gt;</button>
+            </ngx-carousel>
+        </div>
+        <div class="page-item hasImage" data-delay="40" data-direction="ttb">4</div>
+        <div class="page-item hasImage" data-delay="70" data-direction="ttb">
+            5
+        </div>
+        <div class="page-item hasImage" data-delay="100" data-direction="ttb">6</div>
+        <div class="page-item" data-delay="250" data-direction="ttb">7</div>
+        <div class="page-item" data-delay="350" data-direction="ttb">8</div>
+        <div class="page-item" data-delay="400" data-direction="ttb">9</div>
+        <div class="page-item" data-direction="ttb"></div>
+        <div class="page-item" data-delay="20" data-direction="ttb" >
+            <img src="/assets/icons/wedding-cake.png" alt="Wedding Cake" width="50%" class="img-icon">
+        </div>
+        <div class="page-item" data-delay="500" data-direction="ttb">12</div>
+        <div class="page-item page-social-media" data-delay="120" data-direction="ttb">
+            <a href="#">
+                <i class="fi-social-facebook"></i>
+            </a>
+            <a href="#">
+                <i class="fi-social-instagram"></i>
+            </a>
+        </div>
+        <div class="page-item page-nav page-nav-prev" data-direction="ttb">
+            <i class="material-icons">arrow_back</i>
+        </div>
+        <div class="page-item page-nav page-nav-next" data-direction="ttb">
+            <i class="material-icons">arrow_forward</i>
+        </div>
+        <h2 class="page-item page-name">Wedding<br/> Cake</h2>
+        <h3 class="page-item page-title">Belfast</h3>
+        <p class="page-item page-text">A reet bobbydazzler a right toff Sherlock Queen Elizabeth Shakespeare</p>
+    </div>
 
-  <div class="image-top grid first-image">
-      <div style="background: url('cake.jpg')" class="image"></div>
-      <div class="text">Cake</div>
-  </div>
-
-  <div class="slider grid">
-      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-          <ol class="carousel-indicators">
-              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-          </ol>
-          <div class="carousel-inner">
-              <div class="carousel-item active">
-                  <div style="background: url('cake-2.jpg')" class="image h-100"></div>
-                  <div class="carousel-caption d-none d-md-block">
-                      <h3>Cake 2</h3>
-                      <p>Cake 2</p>
-                  </div>
-              </div>
-              <div class="carousel-item">
-                  <div style="background: url('cake.jpg')" class="image h-100"></div>
-                  <div class="carousel-caption d-none d-md-block">
-                      <h3>Cake</h3>
-                      <p>Cake</p>
-                  </div>
-              </div>
-          </div>
-          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-          </a>
-          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-          </a>
-      </div>
-  </div>
-
-
-  <div class="menu-2">
-  </div>
-  <div class="insta-2">
-  </div>
-  <div class="face-2">
-  </div>
-  <div class="logo-2">
-  </div>
-  <div class="image-bottom-2">
-  </div>
-  <div class="image-top-2">
-  </div>
-  <div class="slider-2">
-  </div>
-  
 </div>
-
--->
