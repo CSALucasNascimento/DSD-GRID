@@ -71,6 +71,15 @@
     background-size: cover;
     transition: transform 0.2s ease-out;
  
+    &.hasImage {
+      filter:sepia(100%);
+      transition: filter 0.3s;
+    }
+
+    &.hasImage:hover {
+      filter:contrast(100%);
+    }
+
     &:nth-child(1) {
       grid-area: 11 / 1 / 17 / 5;
       background: url('/assets/images/dsd-logo.png');
@@ -78,13 +87,11 @@
     }
     &:nth-child(2) {
       grid-area: 22 / 6 / 28 / 10;
-      background: url('/assets/images/dsd-logo.png');
+      background: url('/assets/images/brigadeiro.jpg');
       background-size: cover;
     }
     &:nth-child(3) {
       grid-area: 8 / 5 / 22 / 15;
-      background: url('/assets/images/dsd-logo.png');
-      background-size: cover;
     }
     &:nth-child(4) {
       grid-area: 22 / 10 / 29 / 15;
