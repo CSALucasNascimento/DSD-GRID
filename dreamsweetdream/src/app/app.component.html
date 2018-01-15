@@ -10,39 +10,42 @@
     <a href="#">Quibusdam.</a>
 </nav> -->
 
-<div class="wrapper">
+<div [@slider]="page" class="slider-container" style="margin: 20px 10px;">
+    <div class="slide" *ngFor="let image of images"> <img [src]="image" /> </div>
+ </div>
 
-    <div class="pages page-1 page-current">
-        <div class="page-item" data-delay="150" data-direction="ttb">1</div>
-        <div class="page-item hasImage" data-delay="300" data-direction="ttb">2</div>
-        <div class="page-item hasImage" data-delay="200" data-direction="ttb">
-            <ngx-carousel
-            [inputs]="carouselCupcake"
-            (carouselLoad)="myfunc($event)">
-                <ngx-item NgxCarouselItem>
-                    <div style="background: url('/assets/images/bem-casado.jpg')" class="img-responsive"></div>
-                </ngx-item>
-                <ngx-item NgxCarouselItem>
-                    <div style="background: url('/assets/images/cake-2.jpg')" class="img-responsive"></div>
-                </ngx-item>
-                <button NgxCarouselPrev class='leftRs'>&lt;</button>
-                <button NgxCarouselNext class='rightRs'>&gt;</button>
-            </ngx-carousel>
+ <button (click)="previous()" class="btn btn-default">Previous</button>
+ <button (click)="next()" class="btn btn-default">Next</button>
+<!--
+<div [@slider]="page">
+
+    <div class="pages page-1">
+        <div class="page-item" style="background-image: url('/assets/images/dsd-logo.png');">
         </div>
-        <div class="page-item hasImage" data-delay="40" data-direction="ttb">4</div>
-        <div class="page-item hasImage" data-delay="70" data-direction="ttb">
-            5
+        <div class="page-item" style="background-image: url('/assets/images/wedding/cakes/cake1.jpg')">
         </div>
-        <div class="page-item hasImage" data-delay="100" data-direction="ttb">6</div>
-        <div class="page-item hasImage" data-delay="250" data-direction="ttb">7</div>
-        <div class="page-item hasImage" data-delay="350" data-direction="ttb">8</div>
-        <div class="page-item hasImage" data-delay="400" data-direction="ttb">9</div>
-        <div class="page-item hasImage" data-direction="ttb"></div>
-        <div class="page-item" data-delay="20" data-direction="ttb" >
+        <div class="page-item" style="background-image: url('/assets/images/wedding/cakes/cake3.jpg')">
+        </div>
+        <div class="page-item" style="background-image: url('/assets/images/wedding/cakes/cake2.jpg')">
+        </div>
+        <div class="page-item" style="background-image: url('/assets/images/wedding/cakes/cake1.jpg')">
+        </div>
+        <div class="page-item" style="background-image: url('/assets/images/wedding/cakes/cake1.jpg')">
+        </div>
+        <div class="page-item" style="background-image: url('/assets/images/wedding/cakes/cake2.jpg')">
+        </div>
+        <div class="page-item" style="background-image: url('/assets/images/wedding/cakes/cake1.jpg')">
+        </div>
+        <div class="page-item" style="background-image: url('/assets/images/wedding/cakes/cake3.jpg')">
+        </div>
+        <div class="page-item" style="background-image: url('/assets/images/wedding/cakes/cake1.jpg')">
+        </div>
+        <div class="page-item">
             <img src="/assets/icons/wedding-cake.png" alt="Wedding Cake" width="50%" class="img-icon">
         </div>
-        <div class="page-item" data-delay="500" data-direction="ttb">12</div>
-        <div class="page-item page-social-media" data-delay="120" data-direction="ttb">
+        <div class="page-item" style="background-image: url('/assets/images/wedding/cakes/cake1.jpg')">
+        </div>
+        <div class="page-item page-social-media" style="background-image: url('')">
             <a href="#">
                 <i class="fi-social-facebook"></i>
             </a>
@@ -50,15 +53,68 @@
                 <i class="fi-social-instagram"></i>
             </a>
         </div>
-        <div class="page-item page-nav page-nav-prev" data-direction="ttb">
-            <i class="material-icons">arrow_back</i>
+        <div class="page-item page-nav page-nav-prev" style="background-image: url('')" (click)="previous()">
+            <i class="material-icons page-nav-icon-prev">arrow_back</i>
+            <h5 class="page-nav-title">Bem Casado</h5>
         </div>
-        <div class="page-item page-nav page-nav-next" data-direction="ttb">
-            <i class="material-icons">arrow_forward</i>
+        <div class="page-item page-nav page-nav-next" style="background-image: url('')" (click)="next()">
+            <i class="material-icons page-nav-icon-next">arrow_forward</i>
+            <h5 class="page-nav-title">Sweets</h5>
         </div>
-        <h2 class="page-item page-name">Wedding<br/> Cake</h2>
-        <h3 class="page-item page-title">Belfast</h3>
+        <h2 class="page-item page-name">Weddings</h2>
+        <h3 class="page-item page-title">Cakes</h3>
+        <p class="page-item page-text">A reet bobbydazzler a right toff Sherlock Queen Elizabeth Shakespeare</p>
+    </div>
+    
+    <div class="pages page-2">
+        <div class="page-item" data-direction="ttb">
+            <img src="/assets/images/dsd-logo.png" width="100%"/>
+        </div>
+        <div class="page-item" data-direction="ttb">
+            <img src="/assets/images/wedding/cakes/cake1.jpg" width="100%"/>
+        </div>
+        <div class="page-item" style="background-image: url('')">
+            <img src="/assets/images/wedding/cakes/cake3.jpg" width="100%"/>
+        </div>
+        <div class="page-item" style="background-image: url('')">
+            <img src="/assets/images/wedding/cakes/cake3.jpg" width="100%"/>
+        </div>
+        <div class="page-item" style="background-image: url('')">
+            <img src="/assets/images/wedding/cakes/cake2.jpg" width="100%"/>
+        </div>
+        <div class="page-item" style="background-image: url('')">
+            <img src="/assets/images/wedding/cakes/cake1.jpg" width="100%"/>
+        </div>
+        <div class="page-item" style="background-image: url('')">
+            <img src="/assets/images/wedding/cakes/cake2.jpg" width="100%"/>
+        </div>
+        <div class="page-item" style="background-image: url('')">8</div>
+        <div class="page-item" style="background-image: url('')">9</div>
+        <div class="page-item" style="background-image: url('')"></div>
+        <div class="page-item" style="background-image: url('')" >
+            <img src="/assets/icons/wedding-cake.png" alt="Wedding Cake" width="50%" class="img-icon">
+        </div>
+        <div class="page-item" style="background-image: url('')">12</div>
+        <div class="page-item page-social-media" style="background-image: url('')">
+            <a href="#">
+                <i class="fi-social-facebook"></i>
+            </a>
+            <a href="#">
+                <i class="fi-social-instagram"></i>
+            </a>
+        </div>
+        <div class="page-item page-nav page-nav-prev" style="background-image: url('')" (click)="previous()">
+            <i class="material-icons page-nav-icon-prev">arrow_back</i>
+            <h5 class="page-nav-title">Cakes</h5>
+        </div>
+        <div class="page-item page-nav page-nav-next" style="background-image: url('')" (click)="next()">
+            <i class="material-icons page-nav-icon-next">arrow_forward</i>
+            <h5 class="page-nav-title">Bem Casado</h5>
+        </div>
+        <h2 class="page-item page-name">Weddings</h2>
+        <h3 class="page-item page-title">Sweets</h3>
         <p class="page-item page-text">A reet bobbydazzler a right toff Sherlock Queen Elizabeth Shakespeare</p>
     </div>
 
 </div>
+-->

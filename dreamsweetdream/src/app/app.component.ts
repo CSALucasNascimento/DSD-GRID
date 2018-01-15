@@ -1,48 +1,87 @@
-import { Component, ElementRef, AfterViewInit, OnInit } from '@angular/core';
-
-import { NgxCarousel } from 'ngx-carousel';
+import { Component, Input } from '@angular/core';
+import { trigger, transition, style, state, animate, query, stagger, useAnimation, group} from "@angular/animations";
+import { fadeAnimation } from "./animations";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  animations: [
+    trigger('slider', [
+      transition(":increment", group([
+        query(':enter', [
+          style({
+            left: '100%'
+          }),
+          animate('0.5s ease-out', style('*'))
+        ]),
+        query(':leave', [
+          animate('0.5s ease-out', style({
+            left: '-100%'
+          }))
+        ])
+      ])),
+      transition(":decrement", group([
+        query(':enter', [
+          style({
+            left: '-100%'
+          }),
+          animate('0.5s ease-out', style('*'))
+        ]),
+        query(':leave', [
+          animate('0.5s ease-out', style({
+            left: '100%'
+          }))
+        ])
+      ])),
+      transition('false => true', [
+        query('.page-item', stagger('100ms', [
+          useAnimation(fadeAnimation, {
+            params: {
+              time: '500ms',
+              start: 0,
+              end: 1
+            }
+         })
+        ]))
+      ]),
+      transition('true => false', [
+        query('.page-item', stagger('100ms', [
+          useAnimation(fadeAnimation, {
+            params: {
+              time: '500ms',
+              start: 1,
+              end: 0
+            }
+         })
+        ]))
+      ])
+    ])
+  ]
 })
-export class AppComponent implements OnInit {
+export class AppComponent{
 
-  constructor(private elementRef:ElementRef) {
+  constructor() {}
+
+  private _images: string[] = ['https://via.placeholder.com/400x400?text=Hello',
+  'https://via.placeholder.com/400x400?text=Angular',
+  'https://via.placeholder.com/400x400?text=Animations'
+  ];
+
+  page: number = 0;
+
+  get images() {
+    return [this._images[this.page]];
   }
 
-  public carouselCupcake: NgxCarousel;
-  
-   ngOnInit() {
-     this.carouselCupcake = {
-       grid: {xs: 1, sm: 1, md: 1, lg: 1, all: 0},
-       slide: 1,
-       speed: 400,
-       interval: 4000,
-       point: {
-         visible: false
-       },
-       load: 2,
-       touch: true,
-       loop: true,
-       custom: 'banner',
-     }
-   }
-  
-   public myfunc(event: Event) {
-   }
+  previous() {
+    this.page = Math.max(this.page - 1, 0);
+    console.log(this.page)
+  }
 
-  ngAfterViewInit() {
-
-    // let wrapperMenu = this.elementRef.nativeElement.querySelector('.wrapper-menu')
-    // let navcheck = this.elementRef.nativeElement.querySelector('#navcheck')
-
-    // wrapperMenu.addEventListener('click',() => {
-    //   wrapperMenu.classList.toggle('open')
-    //   navcheck.classList.toggle('checked')
-    // })
-
+  next() {
+    this.page = Math.min(this.page + 1, this._images.length - 1);
+    console.log(this.page)
   }
 
 }
