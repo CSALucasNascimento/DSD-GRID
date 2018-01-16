@@ -1,4 +1,6 @@
 
+<app-pages [pages]="pages"></app-pages>
+
 <!-- <div id="navcheck"></div>
 
 <nav id="menu">
@@ -10,12 +12,6 @@
     <a href="#">Quibusdam.</a>
 </nav> -->
 
-<div [@slider]="page" class="slider-container" style="margin: 20px 10px;">
-    <div class="slide" *ngFor="let image of images"> <img [src]="image" /> </div>
- </div>
-
- <button (click)="previous()" class="btn btn-default">Previous</button>
- <button (click)="next()" class="btn btn-default">Next</button>
 <!--
 <div [@slider]="page">
 

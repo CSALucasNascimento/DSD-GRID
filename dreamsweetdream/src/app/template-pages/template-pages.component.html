@@ -1,0 +1,38 @@
+<div class="pages page-current" [ngClass]="data.slug">
+  
+  <!-- /** LOGO **/  -->
+  <div class="page-item" data-direction="ttb">
+    <img src="/assets/images/dsd-logo.png" width="100%"/>
+  </div>
+
+  <!-- /** IMAGES **/  -->
+  <div class="page-item" *ngFor="let image of data.images">
+      <img [src]="image" width="100%"/>
+  </div>
+  
+  <!-- /** SOCIAL MEDIA **/  -->
+  <div class="page-item page-social-media">
+      <a href="#">
+          <i class="fi-social-facebook"></i>
+      </a>
+      <a href="#">
+          <i class="fi-social-instagram"></i>
+      </a>
+  </div>
+
+  <!-- /** PREV AND NEXT **/  -->
+  <div class="page-item page-nav page-nav-prev" (click)="prev()">
+      <i class="material-icons page-nav-icon-prev">arrow_back</i>
+      <h5 class="page-nav-title">Back</h5>
+  </div>
+  <div class="page-item page-nav page-nav-next" (click)="next()">
+      <i class="material-icons page-nav-icon-next">arrow_forward</i>
+      <h5 class="page-nav-title">Next</h5>
+  </div>
+
+  <!-- /** CONTENT **/  -->
+  <h2 class="page-item page-name">{{data.name}}</h2>
+  <h3 class="page-item page-title">{{data.title}}</h3>
+  <p class="page-item page-text">{{data.text}}</p>
+
+</div>

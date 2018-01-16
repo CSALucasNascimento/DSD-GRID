@@ -6,11 +6,18 @@ import { MaterialComponentsModule } from './material-components.module';
 import { NgxCarouselModule } from 'ngx-carousel';
 
 import { AppComponent } from './app.component';
+import { TemplatePagesComponent } from './template-pages/template-pages.component';
+import { PageService } from './page.service';
+import { PagesComponent } from './pages/pages.component';
+import { PageDirective } from './page.directive';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TemplatePagesComponent,
+    PagesComponent,
+    PageDirective
   ],
   imports: [
     BrowserModule,
@@ -18,7 +25,8 @@ import { AppComponent } from './app.component';
     MaterialComponentsModule,
     NgxCarouselModule
   ],
-  providers: [],
+  entryComponents: [TemplatePagesComponent],
+  providers: [PageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
