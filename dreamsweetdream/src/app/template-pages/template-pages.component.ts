@@ -1,4 +1,5 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
+import { Subject } from 'rxjs/Rx'
 
 @Component({
   selector: 'app-template-pages',
@@ -7,10 +8,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core'
 })
 export class TemplatePagesComponent implements OnInit {
 
-  @Output()
-  getNext: EventEmitter<String> = new EventEmitter<String>()
-  @Output()
-  getPrev: EventEmitter<String> = new EventEmitter<String>()
+  getEvent: Subject<string> = new Subject()
 
   constructor() { }
 
@@ -18,11 +16,11 @@ export class TemplatePagesComponent implements OnInit {
   }
 
   prev(){
-    this.getNext.emit()
+    this.getEvent.next('prev')
   }
 
   next(){
-    this.getPrev.emit()
+    this.getEvent.next('next')
   }
 
 }

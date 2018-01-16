@@ -1,7 +1,6 @@
 import { Component, Input, AfterViewInit, ViewChild, ComponentFactoryResolver, OnDestroy, OnInit } from '@angular/core';
-import { trigger, transition, style, state, animate, query, stagger, useAnimation, group} from "@angular/animations";
+import { trigger, transition, style, state, animate, query, stagger, useAnimation, group, animateChild} from "@angular/animations";
 import { fadeAnimation } from "../animations";
-
 import { PageItem } from '../page-item';
 import { PageDirective } from '../page.directive';
 import { PageComponent } from '../page.component';
@@ -10,56 +9,51 @@ import { PageComponent } from '../page.component';
   selector: 'app-pages',
   templateUrl: './pages.component.html',
   styleUrls: ['./pages.component.scss'],
+  host: {
+    '[@slider]':'currentPageIndex'
+  },
   animations: [
-    trigger('currentPageIndex', [
+    trigger('slider', [
       transition(":increment", group([
-        query(':enter', [
-          style({
-            left: '100%'
-          }),
-          animate('0.5s ease-out', style('*'))
-        ]),
-        query(':leave', [
-          animate('0.5s ease-out', style({
-            left: '-100%'
-          }))
-        ])
-      ])),
-      transition(":decrement", group([
-        query(':enter', [
-          style({
-            left: '-100%'
-          }),
-          animate('0.5s ease-out', style('*'))
-        ]),
-        query(':leave', [
-          animate('0.5s ease-out', style({
-            left: '100%'
-          }))
-        ])
-      ])),
-      transition('false => true', [
-        query('.page-item', stagger('100ms', [
+        query(':enter', stagger('500ms', [
           useAnimation(fadeAnimation, {
             params: {
-              time: '500ms',
+              time: '1000ms',
               start: 0,
               end: 1
             }
          })
-        ]))
-      ]),
-      transition('true => false', [
-        query('.page-item', stagger('100ms', [
+        ])),
+        query(':leave', stagger('500ms', [
           useAnimation(fadeAnimation, {
             params: {
-              time: '500ms',
+              time: '1000ms',
               start: 1,
               end: 0
             }
          })
         ]))
-      ])
+      ])),
+      transition(":decrement", group([
+        query(':enter', stagger('500ms', [
+          useAnimation(fadeAnimation, {
+            params: {
+              time: '1000ms',
+              start: 0,
+              end: 1
+            }
+         })
+        ])),
+        query(':leave', stagger('500ms', [
+          useAnimation(fadeAnimation, {
+            params: {
+              time: '1000ms',
+              start: 1,
+              end: 0
+            }
+         })
+        ]))
+      ]))
     ])
   ]
 })
@@ -84,17 +78,12 @@ export class PagesComponent implements OnInit {
     viewContainerRef.clear();
     let componentRef = viewContainerRef.createComponent(componentFactory);
     (<PageComponent>componentRef.instance).data = pageItem.data;
-  }
-
-  next() {
-    this.currentPageIndex = (this.currentPageIndex + 1) % this.pages.length;
-    this.loadComponent();
-    console.log('next-page')
-  }
-
-  prev() {
-    this.currentPageIndex = (this.currentPageIndex - 1) % this.pages.length;
-    this.loadComponent();
+    componentRef.instance.getEvent.subscribe(
+      event => {
+        this.currentPageIndex = event === 'next' ? (this.currentPageIndex < this.pages.length - 1 ? this.currentPageIndex + 1 : 0) : (this.currentPageIndex > 0 ? this.currentPageIndex - 1 : this.pages.length - 1)
+        this.loadComponent()
+      }
+    )
   }
 
 }

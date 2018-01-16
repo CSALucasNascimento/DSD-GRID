@@ -6,8 +6,7 @@
   </div>
 
   <!-- /** IMAGES **/  -->
-  <div class="page-item" *ngFor="let image of data.images">
-      <img [src]="image" width="100%"/>
+  <div class="page-item" *ngFor="let image of data.images" [style.background-image]="'url('+image+')'">
   </div>
   
   <!-- /** SOCIAL MEDIA **/  -->
