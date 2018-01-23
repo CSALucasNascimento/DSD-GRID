@@ -3,7 +3,6 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { NgModule } from '@angular/core';
 
 import { MaterialComponentsModule } from './material-components.module';
-import { NgxCarouselModule } from 'ngx-carousel';
 
 import { AppComponent } from './app.component';
 import { TemplatePagesComponent } from './template-pages/template-pages.component';
@@ -22,8 +21,7 @@ import { PageDirective } from './page.directive';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MaterialComponentsModule,
-    NgxCarouselModule
+    MaterialComponentsModule
   ],
   entryComponents: [TemplatePagesComponent],
   providers: [PageService],

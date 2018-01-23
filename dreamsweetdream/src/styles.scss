@@ -57,7 +57,7 @@
 
 
 body {
-    background-color: $body-background-color;
     font-family: 'Montserrat', sans-serif;
-    min-height: 600px;
+	min-height: 600px;
+	background: $body-background-color;
 }

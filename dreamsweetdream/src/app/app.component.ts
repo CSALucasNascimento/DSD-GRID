@@ -1,6 +1,8 @@
-import { Component, Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/observable/fromEvent';
+
 import { PageService } from './page.service';
-import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
 import { PageItem } from './page-item';
 
 @Component({
@@ -12,7 +14,8 @@ export class AppComponent implements OnInit{
 
   private pages: PageItem[] = [];
 
-  constructor(private pageService: PageService) {}
+  constructor(private pageService: PageService) {
+  }
 
   ngOnInit() {
     this.pages = this.pageService.getPages();

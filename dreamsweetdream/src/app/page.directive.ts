@@ -5,6 +5,6 @@ import { Directive, ViewContainerRef, Input } from '@angular/core';
 })
 export class PageDirective {
 
-  constructor(public viewContainerRef: ViewContainerRef) { }
+  constructor(public viewContainerRef: ViewContainerRef) {}
 
 }

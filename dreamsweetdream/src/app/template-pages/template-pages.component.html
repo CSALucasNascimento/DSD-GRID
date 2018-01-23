@@ -1,4 +1,4 @@
-<div class="pages page-current" [ngClass]="data.slug">
+<div class="pages" [ngClass]="data.slug">
   
   <!-- /** LOGO **/  -->
   <div class="page-item" data-direction="ttb">
@@ -6,7 +6,7 @@
   </div>
 
   <!-- /** IMAGES **/  -->
-  <div class="page-item" *ngFor="let image of data.images" [style.background-image]="'url('+image+')'">
+  <div class="page-item has-image" *ngFor="let image of data.images" [style.background-image]="'url('+image+')'">
   </div>
   
   <!-- /** SOCIAL MEDIA **/  -->
